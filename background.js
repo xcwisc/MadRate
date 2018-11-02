@@ -1,7 +1,4 @@
 chrome.runtime.onInstalled.addListener(function() {
-  chrome.storage.sync.set({color: '#3aa757'}, function() {
-    console.log("The color is green.");
-  });
   chrome.declarativeContent.onPageChanged.removeRules(undefined, function() {
     chrome.declarativeContent.onPageChanged.addRules([{
       conditions: [new chrome.declarativeContent.PageStateMatcher({
@@ -26,7 +23,7 @@ chrome.runtime.onMessage.addListener(function(req, sender, sendResponse) {
         if (link) {
           link = link.getElementsByTagName("a")[0].getAttribute("href");
         }
-        console.log(link);
+        // console.log(link);
         sendResponse({link: link});
       })
       .catch(error => console.error('Error:', error));
@@ -43,7 +40,7 @@ chrome.runtime.onMessage.addListener(function(req, sender, sendResponse) {
         if (link) {
           link = link.querySelector(".grade").innerText;
         }
-        console.log(link);
+        // console.log(link);
         sendResponse({score: link});
       })
       .catch(error => console.error('Error:', error));

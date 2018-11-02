@@ -1,20 +1,22 @@
-const URL = "https://www.ratemyprofessors.com/search.jsp?queryBy=schoolId&schoolName=University+of+Wisconsin+-+Madison&schoolID=1256&query=";
-const Colors = ['#a8d888', '#d8ce87', '#d88787'];
-// let instructorTag = document.querySelector('.section-info__instructor').firstElementChild;
-// let instructorName = instructorTag.innerText;
-// let instructorNames = instructorName.split(" ");
-// let query = URL + instructorNames.join("+");
+function start() {
+  const URL = "https://www.ratemyprofessors.com/search.jsp?queryBy=schoolId&schoolName=University+of+Wisconsin+-+Madison&schoolID=1256&query=";
+  // const Colors = ['#a8d888', '#d8ce87', '#d88787'];
+  // let instructorTag = document.querySelector('.section-info__instructor').firstElementChild;
+  // let instructorName = instructorTag.innerText;
+  // let instructorNames = instructorName.split(" ");
+  // let query = URL + instructorNames.join("+");
 
-let instructorTagArr = document.querySelectorAll('.section-info.section-info__instructor.capitalize');
-let instructorNameArr = getInstructorList(instructorTagArr);
-for (let i = 0; i < instructorNameArr.length; i++) {
-  if (instructorNameArr[i] != "") {
-    searchForProfessor(instructorNameArr[i], instructorTagArr[i]);
+  let instructorTagArr = document.querySelectorAll('.section-info.section-info__instructor.capitalize');
+  let instructorNameArr = getInstructorList(instructorTagArr, URL);
+  for (let i = 0; i < instructorNameArr.length; i++) {
+    if (instructorNameArr[i] != "") {
+      searchForProfessor(instructorNameArr[i], instructorTagArr[i]);
+    }
   }
 }
 
 
-function getInstructorList(instructorTagArr) {
+function getInstructorList(instructorTagArr, URL) {
   let parsedArr = [];
   for (let i = 0; i < instructorTagArr.length; i++) {
     if (instructorTagArr[i].firstElementChild) {
@@ -63,12 +65,13 @@ function renderChange(instructorTag, score, url) {
   instructorTag.firstElementChild.href = "https://www.ratemyprofessors.com" + url;
   let bgColor;
   if (score >= 3.5) {
-    bgColor = Colors[0];
+    bgColor = '#a8d888';
   } else if (score >= 2.5) {
-    bgColor = Colors[1];
+    bgColor = '#d8ce87';
   } else {
-    bgColor = Colors[2];
+    bgColor = '#d88787';
   }
   instructorTag.style.backgroundColor = bgColor;
 }
 
+start();

@@ -2,12 +2,11 @@
     "name": "Professor-hunter",
     "version": "1.0",
     "description": "Build an Extension to get the rate-my-professor score when selecting courses!",
-    "permissions": ["storage", "declarativeContent", "activeTab", "http://www.ratemyprofessors.com/*"],
+    "permissions": ["declarativeContent", "activeTab", "http://www.ratemyprofessors.com/*"],
     "background": {
       "scripts": ["background.js"],
       "persistent": false
     },
-    "options_page": "options.html",
     "page_action": {
       "default_popup": "popup.html",
       "default_icon": {
