@@ -21,7 +21,13 @@ chrome.runtime.onMessage.addListener(function(req, sender, sendResponse) {
         htmlDoc = parser.parseFromString(html, "text/html");
         let link = htmlDoc.querySelector(".listing.PROFESSOR");
         if (link) {
-          link = link.getElementsByTagName("a")[0].getAttribute("href");
+          let schoolName = link.querySelector(".sub").innerText;
+          // console.log(schoolName);
+          if (schoolName.includes("University of Wisconsin - Madison")) {
+            link = link.getElementsByTagName("a")[0].getAttribute("href");
+          } else {
+            link = null;
+          }
         }
         // console.log(link);
         sendResponse({link: link});
@@ -40,7 +46,7 @@ chrome.runtime.onMessage.addListener(function(req, sender, sendResponse) {
         if (link) {
           link = link.querySelector(".grade").innerText;
         }
-        // console.log(link);
+        console.log(link);
         sendResponse({score: link});
       })
       .catch(error => console.error('Error:', error));
