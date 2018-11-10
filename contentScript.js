@@ -1,10 +1,5 @@
 function main(){
   const URL = "https://www.ratemyprofessors.com/search.jsp?queryBy=schoolId&schoolName=University+of+Wisconsin+-+Madison&schoolID=1256&query=";
-  // const Colors = ['#a8d888', '#d8ce87', '#d88787'];
-  // let instructorTag = document.querySelector('.section-info__instructor').firstElementChild;
-  // let instructorName = instructorTag.innerText;
-  // let instructorNames = instructorName.split(" ");
-  // let query = URL + instructorNames.join("+");
 
   let instructorTagArr = document.querySelectorAll('.section-info.section-info__instructor.capitalize');
   let instructorNameArr = getInstructorList(instructorTagArr, URL);
