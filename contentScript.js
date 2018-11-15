@@ -5,7 +5,7 @@ function main(){
   let instructorNameArr = getInstructorList(instructorTagArr, URL);
 
   function getInstructorList(instructorTagArr, URL) {
-  let parsedArr = [];
+    let parsedArr = [];
     for (let i = 0; i < instructorTagArr.length; i++) {
       if (instructorTagArr[i].firstElementChild) {
         let instructorName = instructorTagArr[i].firstElementChild.innerText;

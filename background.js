@@ -12,9 +12,14 @@ chrome.runtime.onInstalled.addListener(function() {
 
 chrome.runtime.onMessage.addListener(function(req, sender, sendResponse) {
   if (req.action === "searchForProfessor") {
-    fetch(req.url)
+    fetch(req.url, {
+      header: new Headers({
+        'Access-Control-Allow-Origin':'*',
+        'Content-Type': 'multipart/form-data'
+      })})
       .then((res) => {
         return res.text();
+        // console.log(res.text());
       })
       .then((html) => {
         parser = new DOMParser();
