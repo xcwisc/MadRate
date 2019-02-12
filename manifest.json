@@ -1,10 +1,16 @@
   {
-    "name": "UW-Madison-Professor-Hunter",
-    "version": "1.0",
+    "name": "MadRate",
+    "version": "1.02",
     "description": "Build an Extension to get the rate-my-professor score when selecting courses!",
-    "permissions": ["declarativeContent", "activeTab", "http://www.ratemyprofessors.com/*"],
+    "permissions": [
+      "declarativeContent",
+      "activeTab",
+      "http://www.ratemyprofessors.com/*"
+    ],
     "background": {
-      "scripts": ["background.js"],
+      "scripts": [
+        "background.js"
+      ],
       "persistent": false
     },
     "page_action": {
